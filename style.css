@@ -96,7 +96,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    width: 90%;
+    width: 100%;
     max-width: 1000px;
 }
 
@@ -209,27 +209,28 @@ body {
 .no-bg-fig {
     overflow: hidden;
     width: 100%; 
-    height: 250px; 
-    margin: 0 auto 15px;
+    height: 250px;
+    margin: 0 auto;
     border-radius: 8px;
 }
 
 .no-bg-fig img { 
     width: 100%; 
     height: 100%; 
-    display: block; 
     object-fit: cover; 
     object-position: center; 
 }
+
 .activity-name {
     color: #5cb85c;
-    font-size: 28px;
+    font-size: 24px; 
     margin: 15px 0 10px 0;
     font-weight: bold;
+    display: block;
 }
 
 .triple-lines span {
-    width: 150px;
+    width: 200px;
     height: 2px;
     background-color: #324950;
     opacity: 0.2;
@@ -239,7 +240,7 @@ body {
 
 .activity-desc {
     color: #324950;
-    max-width: 300px;
+    max-width: 250px;
     margin: 0 auto;
 }
 
