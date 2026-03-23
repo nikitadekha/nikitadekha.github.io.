@@ -34,7 +34,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 20px 10% 0 10%; 
+    padding: 20px 10% 0 13%; 
     width: 100%;
     position: absolute;
     top: 0;
@@ -277,4 +277,117 @@ footer {
     margin: 0;
     font-size: 12px;
     color: #bdc3c7;
+}
+
+.static-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 10% 20px 13%;
+    width: 100%;
+    background: #fff;
+}
+
+.page-banner {
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+}
+
+.page-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content-section {
+    padding: 60px 20px;
+    background-color: #fffaf9;
+}
+
+.page-main-title {
+    font-size: 44px;
+    color: #324950;
+    margin-bottom: 10px;
+}
+
+.pink-bg-content {
+    background-color: #fdf2f1; 
+    padding: 60px 10% 60px 13%;
+    width: 100%;
+}
+
+.intro-text p {
+    margin-bottom: 25px; 
+    line-height: 1.6;
+    color: #444;
+}
+
+.red-sidebar-text {
+    border-left: 3px solid #e74c3c;
+    padding-left: 20px;
+    margin: 40px 0;
+    color: #324950;
+}
+
+.breeding-programs {
+    display: flex;
+    gap: 40px;
+    margin: 40px 0;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 4px;
+}
+
+.program-col {
+    flex: 1;
+}
+
+.program-col h3 {
+    color: #324950;
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #324950;
+}
+
+.program-col p {
+    line-height: 1.6; 
+    font-size: 15px;
+    color: #555;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.product-card {
+    background: #fff;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: 0.3s;
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-info h4 {
+    font-size: 20px;
+    color: #5cb85c;
+    margin: 0 0 5px 0;
+}
+
+.product-info p {
+    font-size: 16px;
+    color: #5cb85c;
+    margin: 0;
 }
