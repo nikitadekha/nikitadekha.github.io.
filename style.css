@@ -279,13 +279,32 @@ footer {
     color: #bdc3c7;
 }
 
+.header-logo-small img {
+    width: 150px; 
+    height: auto;
+}
+
 .static-header {
+    background: #fff;
+    padding: 10px 10% 10px 13%; 
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px 10% 20px 13%;
-    width: 100%;
-    background: #fff;
+    align-items: center; 
+}
+
+.tomato-page .header-nav {
+    margin-top: 10px; 
+}
+
+.tomato-page .header-search-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.tomato-page .header-search form {
+    margin-bottom: 0;
 }
 
 .page-banner {
@@ -390,4 +409,163 @@ footer {
     font-size: 16px;
     color: #5cb85c;
     margin: 0;
+}
+
+.product-page-bg {
+    background-color: #f6f5f5;
+    background-image: url('image/tomato/bg.png'); 
+    background-repeat: no-repeat;
+    background-position: center center; 
+    background-size: 80%;
+    padding: 20px 0;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.product-content-wrapper {
+    max-width: 1000px; 
+    margin: 0 auto;
+    padding: 0 20px; 
+}
+
+.tomato-single .static-header {
+    background: #fff;
+    padding: 10px 10% 10px 13%;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 100;
+}
+
+.tomato-single .header-nav {
+    margin-top: 10px;
+}
+
+.back-link {
+    color: #5cb85c;
+    text-decoration: none;
+    font-size: 14px; 
+    margin-bottom: 25px;
+    display: block;
+}
+
+.product-main-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; 
+}
+
+.product-id {
+    font-size: 40px; 
+    color: #324950;
+    margin-bottom: 2px;
+}
+
+.product-full-name {
+    font-size: 40px; 
+    color: #5cb85c;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.promo-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.badge-icon { width: 55px; }
+.promo-badge p {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 30px; 
+    margin: 0;
+    line-height: 1.2;
+}
+
+.char-title {
+    color: #5cb85c;
+    border-bottom: 2px solid #5cb85c;
+    display: inline-block;
+    padding-bottom: 4px;
+    margin-top: 15px;
+    font-size: 20px; 
+}
+
+.resistance-box {
+    margin-top: 8px;
+    font-size: 17px; 
+    line-height: 1;
+    color: #324950;
+}
+
+.product-image-block {
+    flex: 0 0 420px; 
+}
+
+.main-prod-img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.download-pdf {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 3px solid #5cb85c;
+    color: #5cb85c;
+    padding: 6px 30px 6px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    width: fit-content;
+    margin-left: auto;
+    margin-top: 30px;
+    font-size: 14px; 
+}
+
+.characteristics-grid {
+    display: flex;
+    gap: 0px; 
+}
+
+.char-left-col {
+    flex: 1; 
+}
+
+.char-right-col {
+    flex: 0 0 420px;
+}
+
+.char-item {
+    margin-bottom: 25px;
+}
+
+.char-item h4 {
+    color: #5cb85c;
+    border-bottom: 2px solid #5cb85c;
+    width: 200px;
+    padding-bottom: 6px;
+    margin-bottom: 30px;
+    font-size: 20px; 
+}
+
+.char-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.char-item ul li {
+    font-size: 17px;
+    margin-bottom: 6px;
+    color: #444;
+}
+
+.char-item ul li::before {
+    content: "•";
+    color: #5cb85c;
+    margin-right: 10px;
 }
