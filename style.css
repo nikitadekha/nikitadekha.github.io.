@@ -49,7 +49,7 @@ p, .section-p, .intro-text p {
 
 .green-crosses.center { text-align: center; }
 
-.transparent-header, .static-header, .tomato-single .static-header {
+.transparent-header, .static-header, .tomato-single .static-header, .contact-page .static-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -63,13 +63,13 @@ p, .section-p, .intro-text p {
     padding: 20px 10% 0 13%;
 }
 
-.static-header, .tomato-single .static-header {
+.static-header, .tomato-single .static-header, .contact-page .static-header {
     background: #fff;
     padding: 10px 10% 10px 13%;
     align-items: center;
 }
 
-.tomato-single .static-header {
+.tomato-single .static-header, .contact-page .static-header {
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     position: relative;
     z-index: 100;
@@ -102,7 +102,7 @@ p, .section-p, .intro-text p {
 .search-btn { background: transparent; border: none; cursor: pointer; }
 
 .header-nav { margin-top: 40px; }
-.tomato-page .header-nav, .tomato-single .header-nav { margin-top: 10px; }
+.tomato-page .header-nav, .tomato-single .header-nav, .contact-page .header-nav { margin-top: 10px; }
 
 .header-nav ul, .footer-links ul {
     list-style: none;
@@ -114,6 +114,7 @@ p, .section-p, .intro-text p {
 .header-nav ul { gap: 20px; }
 .header-nav a { text-decoration: none; color: #324950; font-size: 17px; font-weight: bold; }
 
+/* --- 4. HERO ТА БАНЕРИ --- */
 .top-section-wrapper, .page-banner, .tomato-hero {
     width: 100%;
     overflow: hidden;
@@ -232,7 +233,7 @@ p, .section-p, .intro-text p {
     margin: 0 auto 10px;
 }
 
-.activity-desc { color: #324950; max-width: 250px; margin: 0 auto; }
+.activity-desc { color: #324950; max-width: 280px; margin: 0 auto; }
 
 .product-grid {
     display: grid;
@@ -288,7 +289,6 @@ p, .section-p, .intro-text p {
     background: #f6f5f5 url('image/tomato/bg.png') no-repeat center center / 80%;
     padding: 20px 0;
     width: 100%;
-    margin-bottom: 60px;
 }
 
 .back-link { color: #5cb85c; text-decoration: none; font-size: 14px; margin-bottom: 25px; display: block; }
@@ -364,3 +364,134 @@ footer { background-color: #273c43; color: white; padding-top: 20px; }
 .icons-section { padding: 40px 0; overflow-x: auto; }
 .icons-section td { text-align: center; font-size: 16px; color: #324950; }
 .icons-section img { height: 60px; margin-bottom: 10px; }
+
+.contact-content {
+    padding: 60px 0;
+    background-color: #f9f9f9; 
+}
+
+.contact-form {
+    margin-top: 40px;
+}
+
+.form-grid {
+    display: flex;
+    gap: 100px;
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+.form-column {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #324950;
+    font-weight: bold;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px; 
+    background: #fff;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    padding: 75px;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
+}
+
+.captcha-input-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.captcha-code {
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    font-size: 20px;
+    letter-spacing: 3px;
+    background: #eee;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.captcha-input-row input {
+    width: 180px;
+    border: 1px solid #ccc;
+    border-radius: 8px; 
+    background: #fff;
+    padding: 15px;
+}
+
+.send-btn {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 15px 50px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.send-btn:hover {
+    background-color: #4cae4c;
+}
+
+.address-full-width {
+    background-color: #ffffff; 
+    width: 100%;               
+    padding: 20px 0 20px 0;           
+    text-align: center;
+    border-top: 1px solid #eee; /
+}
+
+.address-title {
+    color: #5cb85c;
+    font-size: 24px;
+    font-weight: bold;
+    display: inline-block;
+    border-bottom: 2px solid #5cb85c; 
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+    text-transform: none;
+}
+
+.address-text p {
+    margin: 8px 0;
+    color: #324950;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.address-text a {
+    color: #5cb85c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-content {
+    padding-bottom: 0;
+}
