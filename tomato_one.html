@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAG 1002 - Agridera</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
 </head>
 <body>
 
@@ -23,6 +24,11 @@
             </div>
             <div class="header-nav">
                 <nav>
+                    <div class="mobile-menu-toggle" id="mobile-menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="#">Company Profile</a></li>
@@ -134,6 +140,15 @@
     </footer>
 
 </div>
+
+<script>
+    const menuBtn = document.getElementById('mobile-menu');
+    const nav = document.querySelector('.header-nav');
+
+    menuBtn.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+</script>
 
 </body>
 </html>
