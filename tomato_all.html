@@ -1,15 +1,57 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="js/main.js" defer></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tomato Hybrids</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Grapefruit Hybrids</title> <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
+
+    <style>
+    .pink-bg-content {
+        background-color: #fff2e6 !important; 
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: flex-start;
+    }
+
+    .tomatoItem {
+        width: calc(33.333% - 20px); 
+        margin-bottom: 30px;
+        min-width: 250px; 
+    }
+
+    .tomatoImg {
+        height: 200px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border: 1px solid #ddd;
+    }
+
+    .tomatoImg img {
+        width: 100%; 
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .tomatoInfo {
+        padding: 10px 0;
+        text-align: center;
+    }
+    </style>
 </head>
 <body>
 
-<div class="page-container tomato-page">
+<article class="page-container tomato-page">
 
     <header class="static-header">
         <div class="header-logo header-logo-small">
@@ -43,76 +85,34 @@
     </header>
 
     <section class="page-banner">
-        <img src="image/tomato/tomato_bg.png" alt="Tomatoes">
+        <img src="image/grep/bg.jpg" alt="Grapefruits">
     </section>
 
     <main class="pink-bg-content">
         <div class="container">
-            <h1 class="page-main-title">Agridera Fresh Market Tomato Hybrids</h1>
+            <h1 class="page-main-title">Agridera Fresh Market Grapefruit Hybrids</h1>
             <div class="green-crosses">ₓₓₓₓₓ</div>
             
-            <div class="intro-text">
-                <p>Agridera aims to be one of the world's leading companies in the breeding, production, and marketing of tomato seeds. <strong>We invest intensively in research and development to provide solutions to growers and consumers in numerous countries around the world.</strong> In particular, we breed improved disease-resistant cultivars adapted to different markets globally.</p>
-                <p>Currently, emphasis is placed on combining Tomato Yellow Leaf Curl Virus (TYLCV) and Tomato Spotted Wilt Virus (TSWV) resistances with other soil borne diseases into superior tomato breeding lines and hybrids. Moreover, comprehensive efforts are being undertaken to develop varieties resistance to TBRFV virus (Tomato Brown Rugose Fruit Virus).</p>
-                <p>In terms of horticultural traits, breeding is for earliness, different fruit sizes, firmness, red fruit color, flavor, crack resistance, shelf life, and high/low temperature fruit set. Combinations of quality features and disease resistance are sought in a variety of types, namely round and elongated shapes.</p>
-            </div>
-
-            <div class="red-sidebar-text no-italic">
-                <p>Agridera Tomato breeding programs are focusing on three main segments: Greenhouse Indeterminate Tomatoes, Open-field Indeterminate Tomatoes, and Bush Type Open-field Tomatoes.</p>
-            </div>
-
-            <div class="breeding-programs white-table">
-                <div class="program-col">
-                    <h3>Greenhouse Tomato Breeding Program</h3>
-                    <p><strong>This breeding is aimed for the Spanish and Turkish markets.</strong> For single and cluster picks, round fruit shape and resistances of TYLCV, TSWV, Nematodes and FORL (Fusarium oxysporum f.sp. radicis-lycopersici). Some hybrids may include more resistances, such as Cladosporium and Leveillula Taurica (Lv).</p>
-                </div>
-                <div class="program-col">
-                    <h3>Open-field Indeterminate Tomatoes</h3>
-                    <p><strong>This breeding is for Brazilian, Moroccan, and Turkish markets.</strong> The main focus is on large round shape fruits (200 grams plus); and resistances of TYLCV, TSWV, Nematodes and FORL. In the near future, F3 (Fusarium oxysporum f.sp. lycopersici) will be included as basic resistance in our cultivars.</p>
-                </div>
-                <div class="program-col">
-                    <h3>Open-field Bush Type Tomatoes</h3>
-                    <p><strong>This breeding is for Mediterranean markets.</strong> We breed round and elongated shapes, standard sizes (140-180 grams), and beef sizes (min. 180 grams up to 300 grams and more). We combine the resistances of TYLCV, TSWV and Nematodes as basic resistances in our hybrids. However, some hybrids may include more resistances, such as Cladosporium and Leveillula Taurica (Lv).</p>
-                </div>
-            </div>
-
-            <div class="red-sidebar-text bold-text">
-                <p><strong>Agridera operates through international and local distributers around the world.</strong></p>
-            </div>
-
-            <div class="product-grid">
-                <div class="product-card">
-                    <a href="tomato_one.html"><img src="image/tomato/image_1.png" alt=""></a>
-                    <div class="product-info"><h4>TAG 1000 (TAG 853)</h4><p>Tomato Determinate Red Standard Round</p></div>
-                </div>
-                <div class="product-card">
-                    <a href="tomato_one.html"><img src="image/tomato/image_2.png" alt=""></a>
-                    <div class="product-info"><h4>TAG 1001 (TAG 855)</h4><p>Tomato Determinate Red Standard Round</p></div>
-                </div>
-                <div class="product-card">
-                    <a href="tomato_one.html"><img src="image/tomato/image_3.png" alt=""></a>
-                    <div class="product-info"><h4>TAG 1002 (TAG 809)</h4><p>Tomato Determinate Red Standard Round</p></div>
-                </div>
-                <div class="product-card">
-                    <a href="tomato_one.html"><img src="image/tomato/image_4.png" alt=""></a>
-                    <div class="product-info"><h4>TAG 1003 (TAG 834)</h4><p>Tomato Determinate Red Standard Round</p></div>
-                </div>
-                <div class="product-card">
-                    <a href="tomato_one.html"><img src="image/tomato/image_5.png" alt=""></a>
-                    <div class="product-info"><h4>TAG 1004 (TAG 848)</h4><p>Tomato Determinate Red BEEF Round</p></div>
-                </div>
-                <div class="product-card">
-                    <a href="tomato_one.html"><img src="image/tomato/image_6.png" alt=""></a>
-                    <div class="product-info"><h4>TAG 1005 (TAG 800)</h4><p>Tomato Determinate Red Standard Round</p></div>
-                </div>
-                <div class="product-card">
-                    <a href="tomato_one.html"><img src="image/tomato/image_7.png" alt=""></a>
-                    <div class="product-info"><h4>TAG 1006 (TAG 898)</h4><p>Tomato Determinate Red Elongated</p></div>
-                </div>
-                <div class="product-card">
-                    <a href="tomato_one.html"><img src="image/tomato/image_8.png" alt=""></a>
-                    <div class="product-info"><h4>TAG 1007 (TAG 816)</h4><p>Tomato Determinate Red Elongated</p></div>
-                </div>
+            <div class="tomatosList col-md-12">
+                <div class="row" style="display: flex; flex-wrap: wrap; gap: 20px;">
+                    
+                    <div class="tomatoItem col-md-4" v-if="products" v-for="p in products">
+                        <div class="col-md-12">
+                            <div class="tomatoImg">
+                                <a :href="'tomato_one.html#' + p.id">
+                                    <img :src="'image/grep/' + p.image" alt="grapefruit">
+                                </a>
+                            </div>
+                            <div class="tomatoInfo">
+                                <a :href="'tomato_one.html#' + p.id" style="text-decoration: none; color: inherit;">
+                                    <b style="font-size:20px; line-height: 28px;">{{p.title}}</b>
+                                </a>
+                                <br>
+                                {{p.short_text}}
+                            </div>
+                        </div>
+                    </div>
+                    </div>
             </div>
         </div>
     </main>
@@ -143,14 +143,17 @@
         <p class="copyright">AGRIDERA SEEDS & AGRICULTURE LTD. @ 2026</p>
     </footer>
 
-</div>
+</article>
+
 <script>
+    // Скрипт для мобільного меню можна залишити тут або винести
     const menuBtn = document.getElementById('mobile-menu');
     const nav = document.querySelector('.header-nav');
-
-    menuBtn.addEventListener('click', () => {
-        nav.classList.toggle('active');
-    });
+    if(menuBtn) {
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    }
 </script>
 </body>
 </html>
