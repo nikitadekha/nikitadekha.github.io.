@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="js/main.js" defer></script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAG 1002 - Agridera</title>
+    <title>Grapefruit Details - Agridera</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
+    
+    <style>
+        .product-page-bg { 
+            background-color: #fff4ed !important; 
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        .pdf-btn-style {
+            display: inline-block;
+            padding: 10px 25px;
+            border: 2px solid #4CAF50;
+            border-radius: 25px;
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .pdf-btn-style:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
-<div class="page-container tomato-single">
+<article class="page-container tomato-single">
 
     <header class="static-header">
         <div class="header-logo header-logo-small">
-            <a href="index.html"><img src="image/Logo1.png" alt="Agridera Logo"></a>
+             <a href="index.html"><img src="image/Logo1.png" alt="Agridera Logo"></a>
         </div>
         <div class="header-search-nav">
             <div class="header-search">
@@ -42,74 +67,50 @@
         </div>
     </header>
 
+
     <main class="product-page-bg">
-        <div class="container product-content-wrapper">
+        <div class="container product-content-wrapper" v-if="product && product.id">
             
-            <a href="tomato_all.html" class="back-link">← Return to all tomatoes</a>
+            <a href="tomato_all.html" class="back-link">← Return to all grapefruits</a>
 
             <div class="product-main-info">
                 <div class="product-text-block">
-                    <h1 class="product-id">TAG 1002 (TAG 809)</h1>
-                    <h2 class="product-full-name">Tomato Determinate <br> Red Standard Round</h2>
+                    <h1 class="product-id">{{ product.title }}</h1>
+                    <h2 class="product-full-name">{{ product.short_text }}</h2>
                     <div class="green-crosses">ₓₓₓₓₓ</div>
 
                     <div class="promo-badge">
-                        <img src="image/tomato/tom_logo.png" alt="icon" class="badge-icon">
-                        <p>Very high yield and <br> excellent fruits quality!</p>
+                        <p>High quality and <br> excellent vitamin C source!</p>
                     </div>
 
-                    <h3 class="char-title">CHARACTERISTICS</h3>
-                    <div class="resistance-box">
-                        <p><strong>Resistance</strong></p>
-                        <p>HR: ToMV:0-2; Fol: 1,2; Ve/Vd;</p>
-                        <p>IR: TYLCV</p>
+                    <div class="product-description" style="margin: 20px 0; line-height: 1.6;">
+                        {{ product.desc }}
+                    </div>
+
+                    <div class="cart-actions">
+                        <a class="pdf-btn-style" 
+                           href="#" 
+                           @click.prevent="addToCart(product.id)" 
+                           v-if="!btnVisible">
+                            Add to cart
+                        </a>
+                        
+                        <a class="pdf-btn-style" 
+                           href="contact_us.html" 
+                           v-if="btnVisible">
+                            Go to cart
+                        </a>
                     </div>
                 </div>
 
                 <div class="product-image-block">
-                    <img src="image/tomato/image_3.png" alt="TAG 1002" class="main-prod-img">
-                    <a href="#" class="download-pdf">
-                         <img src="image/tomato/ico_pdf.png" alt="pdf"><strong>Download PDF</strong>
-                    </a>
+                    <img :src="'image/grep/' + product.image" :alt="product.title" class="main-prod-img" style="max-width: 400px;">
                 </div>
             </div>
-
-            <div class="characteristics-grid">
-                <div class="char-left-col">
-                    <div class="char-item">
-                        <h4>Plant</h4>
-                        <ul>
-                            <li>Strong vigor that provides good leaf coverage.</li>
-                            <li>Very high productivity with good fruit setting.</li>
-                            <li>Early matured variety.</li>
-                        </ul>
-                    </div>
-                    <div class="char-item">
-                        <h4>Fruit</h4>
-                        <ul>
-                            <li>Long shelf life on plant and post harvest.</li>
-                            <li>Nice shiny attractive deep red color.</li>
-                            <li>Average fruit size: 140 – 160 grams.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="char-right-col">
-                    <div class="char-item">
-                        <h4>Cycle</h4>
-                        <ul>
-                            <li>Spring</li>
-                            <li>Fall</li>
-                            <li>Winter</li>
-                        </ul>
-                    </div>
-                    <div class="char-item">
-                        <h4>Color</h4>
-                        <p style="font-size: 15px; color: #444; margin-top: 5px;">Red</p>
-                    </div>
-                </div>
-            </div>
-
+        </div>
+        
+        <div class="container" v-else>
+            <p style="text-align: center; padding: 50px;">Loading product details...</p>
         </div>
     </main>
 
@@ -139,16 +140,7 @@
         <p class="copyright">AGRIDERA SEEDS & AGRICULTURE LTD. @ 2026</p>
     </footer>
 
-</div>
-
-<script>
-    const menuBtn = document.getElementById('mobile-menu');
-    const nav = document.querySelector('.header-nav');
-
-    menuBtn.addEventListener('click', () => {
-        nav.classList.toggle('active');
-    });
-</script>
+</article>
 
 </body>
 </html>
