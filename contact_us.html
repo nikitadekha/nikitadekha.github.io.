@@ -94,10 +94,10 @@
                     </thead>
                     <tbody>
                         <tr v-for="item in cart" :key="item.id">
-                            <td><img :src="'image/grep/' + item.image" width="50"></td>
-                            <td>{{ item.title }}</td>
-                            <td>{{ item.short_text }}</td>
-                            <td style="color:red; cursor:pointer; font-weight:bold" @click="removeFromCart(item.id)">✖</td>
+                            <td data-label="Image"><img :src="'image/grep/' + item.image" width="50"></td>
+                            <td data-label="Title">{{ item.title }}</td>
+                            <td data-label="Description">{{ item.short_text }}</td>
+                            <td data-label="Remove" @click="removeFromCart(item.id)" class="remove-btn">✖</td>
                         </tr>
                     </tbody>
                 </table>
