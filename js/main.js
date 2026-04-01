@@ -24,8 +24,8 @@ var app = new Vue({
     mounted: function() {
         this.getProduct();
         this.checkInCart();
-        console.log(window.localStorage.getItem('prod')); // 
-        this.getCart(); // Викликаємо при завантаженні сторінки [cite: 61]
+        console.log(window.localStorage.getItem('prod'));  
+        this.getCart(); 
     },
     methods: {
         getProduct: function() {
@@ -73,8 +73,6 @@ var app = new Vue({
 
         makeOrder: function() {
             this.orderMade = true; 
-            
-            // Очищуємо кошик всюди [cite: 70]
             this.cart = [];
             window.localStorage.removeItem('cart');
         }
