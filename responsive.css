@@ -292,6 +292,52 @@ html, body {
     .section-title, .activities-title { font-size: 30px !important; }
     .header-nav.active ul { position: fixed; top: 0; height: 100vh; padding-top: 80px; }
     .vision-absolute-block, .mission-absolute-block { width: 95%; border-radius: 15px; aspect-ratio: auto; }
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .footer-links ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        gap: 10px 20px;
+        width: 100%;
+        padding: 0;
+        list-style: none;
+    }
+
+    .footer-links ul li {
+        margin: 0;
+        text-align: left;
+    }
+
+    .footer-social {
+        width: 100%;
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+        border-top: 1px solid rgba(255,255,255,0.1); 
+        padding-top: 15px;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 20px;
+    }
+
+    .social-icons img {
+        width: 24px; 
+    }
+
+    .copyright {
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+        font-size: 11px;
+        opacity: 0.7;
+    }
 }
 
 @media (max-width: 320px) {
