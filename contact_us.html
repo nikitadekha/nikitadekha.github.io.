@@ -1,18 +1,46 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="js/main.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Agridera</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
+    <style>
+        .contact-page-bg {
+            background-color: #fff2e6 !important;
+            padding: 40px 0;
+            min-height: 80vh;
+        }
+        /* Стилі таблиці кошика */
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin-bottom: 40px;
+        }
+        .cart-table th, .cart-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        .cart-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .remove-btn {
+            color: red;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-<div class="page-container contact-page">
-
+<article id="app" class="page-container contact-page">
     <header class="static-header">
         <div class="header-logo header-logo-small">
             <a href="index.html"><img src="image/Logo1.png" alt="Agridera Logo"></a>
@@ -24,9 +52,9 @@
                     <button type="submit" class="search-btn">🔍</button>
                 </form>
             </div>
-            <div class="header-nav">
-                <nav>
-                    <div class="mobile-menu-toggle" id="mobile-menu">
+            <div class="header-nav" :class="{ 'active': showMobileMenu }">
+                    <nav>
+                        <div class="mobile-menu-toggle" id="mobile-menu" @click="showMobileMenu = !showMobileMenu">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -53,43 +81,65 @@
             <h1 class="page-main-title">Contact us</h1>
             <div class="green-crosses">ₓₓₓₓₓ</div>
 
-            <form action="#" method="POST" class="contact-form">
+            <div v-if="cart.length > 0 && !orderMade">
+                <h3>Your Selection:</h3>
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in cart" :key="item.id">
+                            <td><img :src="'image/grep/' + item.image" width="50"></td>
+                            <td>{{ item.title }}</td>
+                            <td>{{ item.short_text }}</td>
+                            <td style="color:red; cursor:pointer; font-weight:bold" @click="removeFromCart(item.id)">✖</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <form v-if="!orderMade" @submit.prevent="makeOrder" class="contact-form">
                 <div class="form-grid">
                     <div class="form-column">
                         <div class="form-group">
                             <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" v-model="contactFields.name" required>
                         </div>
                         <div class="form-group">
                             <label for="company">Company Name</label>
-                            <input type="text" id="company" name="company">
+                            <input type="text" v-model="contactFields.company">
                         </div>
                         <div class="form-group">
                             <label for="position">Position</label>
-                            <input type="text" id="position" name="position">
+                            <input type="text" v-model="contactFields.position">
                         </div>
                         <div class="form-group">
                             <label for="city">City</label>
-                            <input type="text" id="city" name="city">
+                            <input type="text" v-model="contactFields.city">
                         </div>
                         <div class="form-group">
                             <label for="country">Country</label>
-                            <input type="text" id="country" name="country">
+                            <input type="text" v-model="contactFields.country">
                         </div>
                         <div class="form-group">
-                            <label for="telephone">Telephone</label>
-                            <input type="tel" id="telephone" name="telephone">
+                            <label for="telephone">Telephone *</label>
+                            <input type="tel" v-model="contactFields.telephone" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" v-model="contactFields.email" required>
                         </div>
                     </div>
 
                     <div class="form-column">
                         <div class="form-group">
                             <label for="user-type">You are a</label>
-                            <select id="user-type" name="user_type">
+                            <select v-model="contactFields.userType">
                                 <option value="seed producer">seed producer</option>
                                 <option value="distributor">distributor</option>
                                 <option value="grower">grower</option>
@@ -98,11 +148,11 @@
                         </div>
                         <div class="form-group">
                             <label for="other-specify">If other, please specify</label>
-                            <input type="text" id="other-specify" name="other_specify">
+                            <input type="text" v-model="contactFields.otherSpecify">
                         </div>
                         <div class="form-group">
                             <label for="interest">You are interested in</label>
-                            <textarea id="interest" name="interest" rows="12"></textarea>
+                            <textarea v-model="contactFields.interest" rows="12"></textarea>
                         </div>
                         
                         <div class="form-footer">
@@ -110,25 +160,36 @@
                                 <label>Please type this code</label>
                                 <div class="captcha-input-row">
                                     <span class="captcha-code">7 c J 3</span>
-                                    <input type="text" name="captcha" required>
+                                    <input type="text" v-model="contactFields.captcha" required>
                                 </div>
                             </div>
                             <button type="submit" class="send-btn">Send Message</button>
                         </div>
                     </div>
                 </div>
-            </form> 
+            </form>
+
+            <div v-if="orderMade" class="success-order">
+                <h2>Thank you, {{ contactFields.name }}!</h2>
+                <p>Your message regarding <b>{{ contactFields.interest }}</b> has been sent.</p>
+                <p>We will contact you at {{ contactFields.email }} or {{ contactFields.telephone }}.</p>
+                <p>Location: {{ contactFields.city }}, {{ contactFields.country }}</p>
+                <br>
+                <a href="tomato_all.html" class="send-btn" style="text-decoration:none">Back to products</a>
+            </div>
         </div> 
+
         <div class="address-full-width">
-        <div class="container"> <h3 class="address-title">Our Address</h3>
-            <div class="address-text">
-                <p>AGRIDERA Seeds & Agriculture Ltd.</p>
-                <p>P.O Box 103,</p>
-                <p>Gedera 70750, Israel.</p>
-                <p>Telephone: <a href="tel:+97289449222">+972 8 944 9222</a></p>
+            <div class="container">
+                <h3 class="address-title">Our Address</h3>
+                <div class="address-text">
+                    <p>AGRIDERA Seeds & Agriculture Ltd.</p>
+                    <p>P.O Box 103,</p>
+                    <p>Gedera 70750, Israel.</p>
+                    <p>Telephone: <a href="tel:+97289449222">+972 8 944 9222</a></p>
+                </div>
             </div>
         </div>
-    </div>
     </main>
 
     <footer>
@@ -156,17 +217,7 @@
         </div>
         <p class="copyright">AGRIDERA SEEDS & AGRICULTURE LTD. @ 2026</p>
     </footer>
-
-
-</div>
-<script>
-    const menuBtn = document.getElementById('mobile-menu');
-    const nav = document.querySelector('.header-nav');
-
-    menuBtn.addEventListener('click', () => {
-        nav.classList.toggle('active');
-    });
-</script>
+</article>
 
 </body>
 </html>
