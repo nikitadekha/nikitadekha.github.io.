@@ -47,9 +47,9 @@
                     <button type="submit" class="search-btn">🔍</button>
                 </form>
             </div>
-            <div class="header-nav">
-                <nav>
-                    <div class="mobile-menu-toggle" id="mobile-menu">
+            <div class="header-nav" :class="{ 'active': showMobileMenu }">
+                    <nav>
+                        <div class="mobile-menu-toggle" id="mobile-menu" @click="showMobileMenu = !showMobileMenu">
                             <span></span>
                             <span></span>
                             <span></span>
