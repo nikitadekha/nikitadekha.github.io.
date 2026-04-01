@@ -15,7 +15,7 @@ body {
 .product-content-wrapper { max-width: 1000px; padding: 0 20px; }
 
 .mobile-menu-toggle {
-    display: none; /* Ховаємо на десктопах */
+    display: none; 
     cursor: pointer;
     flex-direction: column;
     gap: 5px;
@@ -167,27 +167,21 @@ p, .section-p, .intro-text p, .address-text p {
 
 .no-bg-fig {
     width: 100%;
-    height: auto; /* Скасовуємо фіксовані 250px */
-    aspect-ratio: 16 / 10; /* Встановлюємо стале співвідношення сторін (можна змінити на 4/3 або 1/1) */
+    height: auto; 
+    aspect-ratio: 16 / 10; 
     overflow: hidden;
     border-radius: 8px;
 }
 
 .no-bg-fig img {
-    /* Змінюємо 'cover' на 'contain' */
     object-fit: contain; 
-    
-    /* Додаткові налаштування для кращого вигляду */
     width: 100%;
     height: 100%;
     display: block;
-    /* Можна додати фон, якщо фото не на всю ширину */
-    /* background-color: #f0f0f0; */ 
 }
 
-/* Коригуємо таблицю для кращої гнучкості */
 .activities-section table {
-    table-layout: fixed; /* Дозволяє колонкам стискатися рівномірно */
+    table-layout: fixed; 
     width: 100%;
 }
 .activity-name { color: #5cb85c; font-size: 24px; margin: 15px 0 10px; font-weight: bold; display: block; }
