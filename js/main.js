@@ -9,12 +9,23 @@ var app = new Vue({
             { id: 5, title: 'Грейпфрут Оро Бланко', short_text: 'Гібрид з помело', image: 'grape5.jpg', desc: 'Майже позбавлений гіркоти, дуже солодкий десертний сорт.' }
         ],
         product: [], 
-        btnVisible: 0 
+        btnVisible: 0,
+        contactFields: {
+        name: '',
+        email: '',
+        telephone: '',
+        interest: '',
+        city: '',
+        country: '', },
+        cart: [], 
+        orderMade: false,
+        showMobileMenu: false
     },
     mounted: function() {
         this.getProduct();
         this.checkInCart();
         console.log(window.localStorage.getItem('prod')); // 
+        this.getCart(); // Викликаємо при завантаженні сторінки [cite: 61]
     },
     methods: {
         getProduct: function() {
@@ -45,6 +56,27 @@ var app = new Vue({
             if(this.product && this.product.id && window.localStorage.getItem('cart').split(',').indexOf(String(this.product.id)) != -1) {
                 this.btnVisible = 1;
             }
+        },
+        getCart: function() {
+            var storageCart = window.localStorage.getItem('cart');
+            if (storageCart) {
+                var ids = storageCart.split(',');
+                this.cart = this.products.filter(p => ids.includes(String(p.id)));
+            }
+        },
+
+        removeFromCart: function(id) {
+            this.cart = this.cart.filter(p => p.id !== id);
+            var ids = this.cart.map(p => p.id);
+            window.localStorage.setItem('cart', ids.join());
+        },
+
+        makeOrder: function() {
+            this.orderMade = true; 
+            
+            // Очищуємо кошик всюди [cite: 70]
+            this.cart = [];
+            window.localStorage.removeItem('cart');
         }
     }
 });
