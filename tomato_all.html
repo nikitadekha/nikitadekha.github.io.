@@ -64,9 +64,9 @@
                     <button type="submit" class="search-btn">🔍</button>
                 </form>
             </div>
-            <div class="header-nav">
-                <nav>
-                    <div class="mobile-menu-toggle" id="mobile-menu">
+            <div class="header-nav" :class="{ 'active': showMobileMenu }">
+                    <nav>
+                        <div class="mobile-menu-toggle" id="mobile-menu" @click="showMobileMenu = !showMobileMenu">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -145,15 +145,5 @@
 
 </article>
 
-<script>
-    // Скрипт для мобільного меню можна залишити тут або винести
-    const menuBtn = document.getElementById('mobile-menu');
-    const nav = document.querySelector('.header-nav');
-    if(menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-    }
-</script>
 </body>
 </html>
